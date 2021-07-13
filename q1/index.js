@@ -5,7 +5,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "view"));
 
-app.use(express.urlencoded()); // to support URL-encoded bodies
+/*app.use('/css', express.static(path.join(__dirname, 'css')));  no css*/
+
+app.use(express.urlencoded());
 
 app.get('/', (req, res) => {
     res.render('index');
