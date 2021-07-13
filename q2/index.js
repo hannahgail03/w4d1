@@ -3,7 +3,7 @@ const path = require('path');
 const session = require('express-session');
 const app = express();
 
-app.use(express.urlencoded()); // to support URL-encoded bodies
+app.use(express.urlencoded());
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use(session({secret: 'n0tc0mm0nS4lt!#'}));
 
@@ -13,7 +13,10 @@ app.set('views', path.join(__dirname, "view"));
 const getCSS = () => {
     const date_ob = new Date();
     const hour = date_ob.getHours();
-    return (hour > 6 && hour <= 18) ? '/css/day.css' : '/css/night.css';
+    if (hour > 6 && hour <= 18)
+        return '/css/day.css'
+    else
+        return '/css/night.css';
 };
 
 app.get('/', (req, res) => {

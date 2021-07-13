@@ -7,20 +7,18 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "view"));
 
 app.use(session({secret: 'n0tc0mm0nS4lt!#'}));
-app.use(express.urlencoded()); // to support URL-encoded bodies
-
-// Simulated DB
+app.use(express.urlencoded());
 let productsDB = {
     0: {
-        name: 'apple',
+        name: 'product 1',
         price: 1
     },
     1: {
-        name: 'gummy bear x10',
+        name: 'product 2',
         price: 2
     },
     2: {
-        name: 'juice',
+        name: 'product 3',
         price: 3
     }
 };
